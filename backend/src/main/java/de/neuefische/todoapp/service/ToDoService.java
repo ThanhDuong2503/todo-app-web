@@ -45,4 +45,8 @@ public class ToDoService {
             }
         } throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ToDo ID not found");
     }
+
+    public ToDo getToDoById(String id) {
+        return toDoDB.getToDoById(id);
+    }
 }

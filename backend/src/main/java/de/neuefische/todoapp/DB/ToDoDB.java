@@ -33,6 +33,15 @@ public class ToDoDB {
         return todos;
     }
 
+    public ToDo getToDoById(String id) {
+        for (ToDo toDo : todos) {
+            if (toDo.getId().equals(id)) {
+                return toDo;
+            }
+        }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Student ID not found");
+    }
+
 
     public List<ToDo> removeToDo(ToDo toDoToBeRemoved) {
         todos.remove(toDoToBeRemoved);

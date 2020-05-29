@@ -31,9 +31,9 @@ public class ToDoController {
     }
 
     @GetMapping("{id}/status")
-    public List<ToDo> getAllToDos(@PathVariable String id) {
+    public ToDo getAllToDos(@PathVariable String id) {
 
-        return toDoService.getAllToDos();
+        return toDoService.getToDoById(id);
     }
 
     @DeleteMapping("{id}")
