@@ -4,6 +4,7 @@ import de.neuefische.todoapp.DB.ToDoDB;
 import de.neuefische.todoapp.Enums.status;
 import de.neuefische.todoapp.model.Description;
 import de.neuefische.todoapp.model.ToDo;
+import de.neuefische.todoapp.model.UpdateStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -48,5 +49,16 @@ public class ToDoService {
 
     public ToDo getToDoById(String id) {
         return toDoDB.getToDoById(id);
+    }
+
+    public ToDo setStatus(String id, UpdateStatus status) {
+        status newStatus = status.getStatus();
+        for (ToDo todo: toDoDB.getAllToDos()) {
+            if (todo.getId().equals(id)) {
+                todo.setStatus(newStatus);
+                return todo;
+            }
+        } throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Status not found");
+
     }
 }
