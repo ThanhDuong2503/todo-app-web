@@ -21,16 +21,19 @@ public class ToDoController {
         this.toDoService = toDoService;
     }
 
+    // ruft alle ToDos auf http://localhost:8080/ auf
     @GetMapping
     public List<ToDo> getAllToDos() {
         return toDoService.getAllToDos();
     }
 
+    // added neue ToDos
     @PutMapping
     public ToDo addToDo(@RequestBody Description description) {
         return toDoService.addToDo(description);
     }
 
+    // ruft einzelnes ToDo mit id=1 auf http://localhost:8080/1/status auf
     @GetMapping("{id}/status")
     public ToDo getAllToDos(@PathVariable String id) {
 
@@ -42,6 +45,7 @@ public class ToDoController {
         toDoService.removeToDo(id);
     }
 
+    // verschiebt ToDos je nach Status
     @PutMapping("{id}/status")
     public ToDo updateStatus(@PathVariable String id, @RequestBody UpdateStatus status) {
         return toDoService.setStatus(id, status);

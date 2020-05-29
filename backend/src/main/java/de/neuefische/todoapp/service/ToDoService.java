@@ -24,12 +24,13 @@ public class ToDoService {
         this.toDoDB = toDoDB;
     }
 
-
+    // Listet alle Todos auf
     public List<ToDo> getAllToDos() {
 
         return toDoDB.getAllToDos();
     }
 
+    // added neue ToDo mit random ID zu status OPEN
     public ToDo addToDo(Description description) {
         String uuid = UUID.randomUUID().toString();
         String message= description.getDescription();
@@ -37,7 +38,7 @@ public class ToDoService {
         return toDoDB.addToDo(newToDo);
     }
 
-
+    // löscht ToDo
     public List<ToDo> removeToDo(String id) {
         for (ToDo toDoToBeRemoved: toDoDB.getAllToDos()){
             if(toDoToBeRemoved.getId().equals(id)) {
@@ -47,10 +48,12 @@ public class ToDoService {
         } throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ToDo ID not found");
     }
 
+
     public ToDo getToDoById(String id) {
         return toDoDB.getToDoById(id);
     }
 
+    // setzt neuen Status zum Verschieben der ToDo
     public ToDo setStatus(String id, UpdateStatus status) {
         status newStatus = status.getStatus();
         for (ToDo todo: toDoDB.getAllToDos()) {

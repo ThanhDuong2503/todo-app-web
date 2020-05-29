@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
+
+// Container für neues ToDo, was man eingeben kann
 public class Description {
     private String description;
 }

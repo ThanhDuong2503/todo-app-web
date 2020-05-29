@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// Container für veränderten status, nachdem man progress/done klickt
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

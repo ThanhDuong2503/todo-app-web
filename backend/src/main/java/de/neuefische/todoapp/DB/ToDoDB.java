@@ -29,10 +29,6 @@ public class ToDoDB {
         return newToDo;
     }
 
-    public List<ToDo> getToDos() {
-        return todos;
-    }
-
     public ToDo getToDoById(String id) {
         for (ToDo toDo : todos) {
             if (toDo.getId().equals(id)) {
@@ -48,6 +44,7 @@ public class ToDoDB {
         return todos;
     }
 
+    // nur für Test notwendig
     public void clearDb(){
         todos.clear();
     }
